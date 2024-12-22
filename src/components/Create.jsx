@@ -1,8 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 
 const Create = () => {
+  const [values, setvalues] = useState({
+    name :"",
+    email : "",
+    phone : ""
+})
   return (
     <div className='d-flex flex-column justify-content-center align-items-center bg-light vh-100'>
       <div className='w-50 border bg-white shadow px-5 pt-3 pb-5 rounded'>
