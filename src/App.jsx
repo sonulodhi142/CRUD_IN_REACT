@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 const App = () => {
   return (
     <BrowserRouter>
-      <h1>app</h1>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/create" element={<Create/>}/>
