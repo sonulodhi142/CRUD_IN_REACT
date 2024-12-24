@@ -1,3 +1,4 @@
+import axios from 'axios'
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -15,7 +16,8 @@ const handleChange = (e) =>{
 }
 const handleSubmit = (e) =>{
   e.preventDefault()
-  console.log(values)
+  axios.post('http://localhost:3000/users', values)
+  .then(result => console.log(result))
 }
   return (
     <div className='d-flex flex-column justify-content-center align-items-center bg-light vh-100'>
