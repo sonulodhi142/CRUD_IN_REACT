@@ -10,6 +10,16 @@ const Home = () => {
     .then(result => setData(result.data))
     .catch(error => console.log(error));
   },[])
+
+  const deleteHandle = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3000/users/${id}`);
+      setData((prevUsers) => prevUsers.filter((user) => user.id !== id));
+    }
+    catch (error) {
+      console.error("Error deleting user:", error);
+    }
+  };
   return (
     <div className='d-flex flex-column justify-content-center align-items-center bg-light vh-100'>
       <h1>List of User</h1>
@@ -38,7 +48,7 @@ const Home = () => {
                   <td>
                     <Link to={`/read/${d.id}`}><button className='btn btn-sm btn-info me-2'>View </button></Link>
                     <button className='btn btn-sm btn-primary me-2'>Edit </button>
-                    <button className='btn btn-sm btn-danger me-2'>Delete </button>
+                    <button onClick={()=>deleteHandle(d.id)} className='btn btn-sm btn-danger me-2'>Delete </button>
                   </td>
                 </tr>
               ))
