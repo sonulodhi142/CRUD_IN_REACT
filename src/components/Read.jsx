@@ -1,8 +1,17 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios'
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
+
 
 
 const Read = () => {
+  const [data, setData] = useState([])
+  const {id} = useParams()
+  useEffect(()=>{
+    axios.get('http://localhost:3000/users/'+id)
+    .then(result => setData(result.data))
+    .catch(error => console.log(error));
+  },[])
   return (
     <div className='d-flex flex-column justify-content-center align-items-center bg-light vh-100'>
       <h1>List of User</h1>
@@ -23,10 +32,10 @@ const Read = () => {
           <tbody>
             
                 <tr >
-                  <td>0000</td>
-                  <td>0000</td>
-                  <td>000</td>
-                  <td>0000</td>
+                  <td>{data.id}</td>
+                  <td>{data.name}</td>
+                  <td>{data.email}</td>
+                  <td>{data.phone}</td>
                   
                 </tr>
               
