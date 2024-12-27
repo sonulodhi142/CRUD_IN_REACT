@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 
 const Create = () => {
+  const navigate = useNavigate()
   const [values, setvalues] = useState({
     name :"",
     email : "",
@@ -17,7 +18,8 @@ const handleChange = (e) =>{
 const handleSubmit = (e) =>{
   e.preventDefault()
   axios.post('http://localhost:3000/users', values)
-  .then(result => console.log(result))
+  .catch(error => console.log(error));
+  navigate('/')
 }
   return (
     <div className='d-flex flex-column justify-content-center align-items-center bg-light vh-100'>

@@ -26,7 +26,7 @@ const Update = () => {
   const handleUpdate = (e) =>{
     e.preventDefault()
     axios.put('http://localhost:3000/users/'+id, values)
-    .then(result => console.log(result))
+    .catch(error => console.log(error));
     navigate('/')
   }
   
