@@ -47,7 +47,7 @@ const Home = () => {
                   <td>{d.phone}</td>
                   <td>
                     <Link to={`/read/${d.id}`}><button className='btn btn-sm btn-info me-2'>View </button></Link>
-                    <button className='btn btn-sm btn-primary me-2'>Edit </button>
+                    <Link to={`/update/${d.id}`}><button className='btn btn-sm btn-primary me-2'>Edit </button></Link>
                     <button onClick={()=>deleteHandle(d.id)} className='btn btn-sm btn-danger me-2'>Delete </button>
                   </td>
                 </tr>
